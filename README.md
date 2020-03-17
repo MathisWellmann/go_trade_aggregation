@@ -4,6 +4,7 @@ The Candles provide more detailed statistics than the usual OHLCV candles.
 Additional statistics inlcude:
 - number of trades
 - trade direction ratio ( num_buys / num_trades )
+- volume direction ratio ( buyVolume / totalVolume )
 - weighted average price ( using abs(size) as weight)
 
 This Aggregation package allows for the creation of highly sophisticated algorithm and ML models.
@@ -33,8 +34,26 @@ This is the most sophisticated aggregation method and captures the market energy
 creating a timeseries which is well behaved and does not suffer as much as time aggregated candles from volatility.
 
 ### Images
-Coming Soon once there is a decent way to plot candlesticks in Go
-
+Now let's analyze the behaviour of the aggregation methods. First we will take a look at 1 hour time aggregated
+candles (513 to be exact). It was created on XBTM20 contracts on Bitmex and take the last 1 million trades for aggregation.
+This is what it looks like using my rudimentary [candlestick render](https://MathisWellmann/go_plot_candlestick)
+Candle color is determined by VolumeDirectionRatio:
+- VolumeDirectionRatio > 0.5 -> Green Candle
+- VolumeDirectionRatio < 0.5 -> Red Candle
+This gives another layer of information, but may prove otherwise as well.
+![agg_time_1h](img/agg_time_h1.png)
+Now compare it with trade aggregation based on volume and the same underlying data. 
+The candles are 513 exactly as well which was achieved by computing the correct volume threshold parameter of the AggVolume function.
+Volume Threshold has been set to 4290000, which means create on candle every 4290000 USD worth of bitcoin contracts being traded.
+Here is what it looks like:
+![agg_volume_4290000](img/agg_volume_4290000.000000.png)
+Not surprisingly (hopefully) is is clear that this shows a much more well behaved chart. 
+The individual waves are cleary visible without any magic involved.
+The sharp 3 wave up-move seen in the later part of the time aggregated candles are now much more relaxed and flow naturally.
+The volume graph on this would be flat.
+Now let' take a look at another formula that aims to capture the market energy optimally.
+To the best of my knowledge is this the first time a formula like this has been used to aggregate trade data.
+![agg_market_energy](img/) 
 ### Installation:
 ``
 go get github.com/MathisWellmann/go_trade_aggregation
@@ -46,7 +65,7 @@ This reduces memory usage over storing that info in string as it is only one bit
 See [example](example) folder and tests for more details.
 
 ### TODOs:
-- Images to demonstrate different methods side by side
+- Add volume bars to bottom of charts
 - Helper functions for converting time period to other threshold values so that the same number of candles can be
 returned over all aggregation methods without tuning parameter manually.
 - Analysis paper of observed behaviour with different aggregation methods

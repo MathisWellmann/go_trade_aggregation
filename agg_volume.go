@@ -10,6 +10,7 @@ func AggVolume(trades []*Trade, threshold float64) []*Candle {
 	var high float64
 	var low float64
 	var volume float64
+	var buyVolume float64
 	var numBuys int
 	var numTrades int
 	var wp float64 // used for calculating weighted price
@@ -23,6 +24,7 @@ func AggVolume(trades []*Trade, threshold float64) []*Candle {
 			high = trades[i].Price
 			low = trades[i].Price
 			volume = 0
+			buyVolume = 0
 			numBuys = 0
 			numTrades = 0
 			wp = 0
@@ -37,21 +39,23 @@ func AggVolume(trades []*Trade, threshold float64) []*Candle {
 		numTrades++
 		if trades[i].Size > 0 {
 			numBuys++
+			buyVolume += trades[i].Size
 		}
 		wp += trades[i].Price * math.Abs(trades[i].Size)
 
 		if volume > threshold {
 			// create new candle
 			c := &Candle{
-				Timestamp:           trades[i].Timestamp,
-				Open:                open,
-				High:                high,
-				Low:                 low,
-				Close:               trades[i].Price,
-				Volume:              volume,
-				NumTrades:           numTrades,
-				TradeDirectionRatio: float64(numBuys) / float64(numTrades),
-				WeightedPrice:       wp / volume,
+				Timestamp:            trades[i].Timestamp,
+				Open:                 open,
+				High:                 high,
+				Low:                  low,
+				Close:                trades[i].Price,
+				Volume:               volume,
+				NumTrades:            numTrades,
+				TradeDirectionRatio:  float64(numBuys) / float64(numTrades),
+				VolumeDirectionRatio: buyVolume / volume,
+				WeightedPrice:        wp / volume,
 			}
 			out = append(out, c)
 

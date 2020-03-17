@@ -19,3 +19,20 @@ func TestAggTime(t *testing.T) {
 		}
 	}
 }
+
+func TestAggTimeGraph(t *testing.T) {
+	trades, err := LoadTradesFromCSV("data/Bitmex_XBTM20.csv")
+	if err != nil {
+		t.Error(err)
+	}
+	last := len(trades) - 1
+	candles := AggTime(trades[last-1000000:last], H1)
+
+	fmt.Printf("len(candles): %d\n", len(candles))
+
+	filename := "img/agg_time_h1.png"
+	err = PlotCandleStick(candles, filename)
+	if err != nil {
+		t.Error(err)
+	}
+}

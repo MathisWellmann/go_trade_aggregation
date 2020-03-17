@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46df2181-f15d-4eb9-ac38-799f673517d4" name="Default Changelist" comment="">
+    <list default="true" id="46df2181-f15d-4eb9-ac38-799f673517d4" name="Default Changelist" comment="in depth README.md.&#10;added gitignore.&#10;added VolumeDirectionRatio.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/canvas.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/agg_time_h1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/agg_volume_4290000.000000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scale.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scale_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agg_market_energy.go" beforeDir="false" afterPath="$PROJECT_DIR$/agg_market_energy.go" afterDir="false" />
@@ -11,9 +18,7 @@
       <change beforePath="$PROJECT_DIR$/agg_volume.go" beforeDir="false" afterPath="$PROJECT_DIR$/agg_volume.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agg_volume_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/agg_volume_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/common_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trades.go" beforeDir="false" afterPath="$PROJECT_DIR$/trades.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -47,15 +53,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GoTrader" />
   </component>
-  <component name="RunManager" selected="Go Test.TestAggMarketEnergy in github.com/MathisWellmann/go_trade_aggregation">
-    <configuration name="go build github.com/MathisWellmann/go_trade_aggregation/example" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="go_trade_aggregation" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/example/main.go" />
-      <package value="github.com/MathisWellmann/go_trade_aggregation/example" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Test.TestAggMarketEnergyGraph in github.com/MathisWellmann/go_trade_aggregation">
     <configuration name="TestAggMarketEnergy in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go_trade_aggregation" />
       <working_directory value="$PROJECT_DIR$" />
@@ -63,6 +61,15 @@
       <kind value="PACKAGE" />
       <package value="github.com/MathisWellmann/go_trade_aggregation" />
       <pattern value="^TestAggMarketEnergy$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAggMarketEnergyGraph in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go_trade_aggregation" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/MathisWellmann/go_trade_aggregation" />
+      <pattern value="^TestAggMarketEnergyGraph$" />
       <method v="2" />
     </configuration>
     <configuration name="TestAggTime in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -74,48 +81,66 @@
       <pattern value="^TestAggTime$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestAggVolume in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAggTimeGraph in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go_trade_aggregation" />
       <working_directory value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/MathisWellmann/go_trade_aggregation" />
-      <pattern value="^TestAggVolume$" />
+      <pattern value="^TestAggTimeGraph$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAggVolumeGraph in github.com/MathisWellmann/go_trade_aggregation" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go_trade_aggregation" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/MathisWellmann/go_trade_aggregation" />
+      <pattern value="^TestAggVolumeGraph$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestAggMarketEnergyGraph in github.com/MathisWellmann/go_trade_aggregation" />
+        <item itemvalue="Go Test.TestAggTimeGraph in github.com/MathisWellmann/go_trade_aggregation" />
+        <item itemvalue="Go Test.TestAggVolumeGraph in github.com/MathisWellmann/go_trade_aggregation" />
         <item itemvalue="Go Test.TestAggMarketEnergy in github.com/MathisWellmann/go_trade_aggregation" />
         <item itemvalue="Go Test.TestAggTime in github.com/MathisWellmann/go_trade_aggregation" />
-        <item itemvalue="Go Test.TestAggVolume in github.com/MathisWellmann/go_trade_aggregation" />
-        <item itemvalue="Go Build.go build github.com/MathisWellmann/go_trade_aggregation/example" />
       </list>
     </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rest of init" />
+    <option name="LAST_COMMIT_MESSAGE" value="rest of init" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1461" y="1159" key="FileChooserDialogImpl" timestamp="1584456371106">
+    <state x="1226" y="1026" key="CommitChangelistDialog2" timestamp="1584479087358">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
-    <state x="1461" y="1159" key="FileChooserDialogImpl/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584456371106" />
-    <state width="1040" height="276" key="GridCell.Tab.0.bottom" timestamp="1584462925773">
+    <state x="1226" y="1026" key="CommitChangelistDialog2/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584479087358" />
+    <state x="1461" y="1159" key="FileChooserDialogImpl" timestamp="1584467521243">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1040" height="276" key="GridCell.Tab.0.bottom/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584462925773" />
-    <state width="1040" height="276" key="GridCell.Tab.0.center" timestamp="1584462925773">
+    <state x="1461" y="1159" key="FileChooserDialogImpl/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584467521243" />
+    <state width="1040" height="348" key="GridCell.Tab.0.bottom" timestamp="1584478676971">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1040" height="276" key="GridCell.Tab.0.center/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584462925773" />
-    <state width="1040" height="276" key="GridCell.Tab.0.left" timestamp="1584462925773">
+    <state width="1040" height="348" key="GridCell.Tab.0.bottom/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584478676971" />
+    <state width="1040" height="348" key="GridCell.Tab.0.center" timestamp="1584478676971">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1040" height="276" key="GridCell.Tab.0.left/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584462925773" />
-    <state width="1040" height="276" key="GridCell.Tab.0.right" timestamp="1584462925773">
+    <state width="1040" height="348" key="GridCell.Tab.0.center/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584478676971" />
+    <state width="1040" height="348" key="GridCell.Tab.0.left" timestamp="1584478676970">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1040" height="276" key="GridCell.Tab.0.right/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584462925773" />
+    <state width="1040" height="348" key="GridCell.Tab.0.left/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584478676970" />
+    <state width="1040" height="348" key="GridCell.Tab.0.right" timestamp="1584478676971">
+      <screen x="1080" y="0" width="1080" height="1920" />
+    </state>
+    <state width="1040" height="348" key="GridCell.Tab.0.right/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584478676971" />
     <state width="1040" height="339" key="GridCell.Tab.1.bottom" timestamp="1584462331323">
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
@@ -132,5 +157,13 @@
       <screen x="1080" y="0" width="1080" height="1920" />
     </state>
     <state width="1040" height="339" key="GridCell.Tab.1.right/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584462331323" />
+    <state x="1320" y="1173" key="Vcs.Push.Dialog.v2" timestamp="1584463254809">
+      <screen x="1080" y="0" width="1080" height="1920" />
+    </state>
+    <state x="1320" y="1173" key="Vcs.Push.Dialog.v2/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584463254809" />
+    <state x="1274" y="1046" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584474214230">
+      <screen x="1080" y="0" width="1080" height="1920" />
+    </state>
+    <state x="1274" y="1046" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1080.0.1080.1920/0.0.1080.1884/2160.0.1050.1680@1080.0.1080.1920" timestamp="1584474214230" />
   </component>
 </project>

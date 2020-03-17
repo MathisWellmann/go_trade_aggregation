@@ -7,14 +7,15 @@ type (
 		Size      float64 // will be negative if sell trade
 	}
 	Candle struct {
-		Timestamp           int64
-		Open                float64
-		High                float64
-		Low                 float64
-		Close               float64
-		Volume              float64
-		NumTrades           int
-		TradeDirectionRatio float64 // numBuys / numTrades
-		WeightedPrice       float64
+		Timestamp            int64
+		Open                 float64
+		High                 float64
+		Low                  float64
+		Close                float64
+		Volume               float64
+		NumTrades            int
+		TradeDirectionRatio  float64 // numBuys / numTrades
+		VolumeDirectionRatio float64 // buyVolume / totalVolume
+		WeightedPrice        float64
 	}
 )

@@ -122,3 +122,5 @@ func errNumTrades(candle *Candle) bool {
 	}
 	return false
 }
+
+// TODO: errCheck VolumeDirectionRatio
