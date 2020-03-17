@@ -43,15 +43,15 @@ func AggVolume(trades []*Trade, threshold float64) []*Candle {
 		if volume > threshold {
 			// create new candle
 			c := &Candle{
-				Timestamp:            trades[i].Timestamp,
-				Open:                 open,
-				High:                 high,
-				Low:                  low,
-				Close:                trades[i].Price,
-				Volume:               volume,
-				NumTrades:            numTrades,
-				TradeDirectionRation: float64(numBuys) / float64(numTrades),
-				WeightedAveragePrice: wp / volume,
+				Timestamp:           trades[i].Timestamp,
+				Open:                open,
+				High:                high,
+				Low:                 low,
+				Close:               trades[i].Price,
+				Volume:              volume,
+				NumTrades:           numTrades,
+				TradeDirectionRatio: float64(numBuys) / float64(numTrades),
+				WeightedPrice:       wp / volume,
 			}
 			out = append(out, c)
 

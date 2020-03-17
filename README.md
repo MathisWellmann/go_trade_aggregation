@@ -28,16 +28,25 @@ Creates candles using the aggregation function
 ``
 sqrt(abs(size) * abs(return))
 ``
-This is the most sophisticated aggregation method and captures the market energy well, creating a timeseries which is well behaved and does not suffer as much as time aggregated candles from volatility.
+I named the function as i did not find anyone who has used this aggregation method before.
+This is the most sophisticated aggregation method and captures the market energy well, 
+creating a timeseries which is well behaved and does not suffer as much as time aggregated candles from volatility.
 
 ### Images
+Coming Soon once there is a decent way to plot candlesticks in Go
+
+### Installation:
+``
+go get github.com/MathisWellmann/go_trade_aggregation
+``
 
 ### How To Use:
 First load your desired trades into []*Trade. Note that if trade is sell, then size is negative. 
 This reduces memory usage over storing that info in string as it is only one bit.
-See example folder and tests for more details.
+See [example](example) folder and tests for more details.
 
 ### TODOs:
+- Images to demonstrate different methods side by side
 - Helper functions for converting time period to other threshold values so that the same number of candles can be
 returned over all aggregation methods without tuning parameter manually.
 - Analysis paper of observed behaviour with different aggregation methods
