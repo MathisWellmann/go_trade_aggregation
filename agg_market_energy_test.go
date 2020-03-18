@@ -26,7 +26,7 @@ func TestAggMarketEnergyGraph(t *testing.T) {
 		t.Error(err)
 	}
 	last := len(trades) - 1
-	threshold := 1585000.0
+	threshold := 17.1
 	candles := AggMarketEnergy(trades[last-100000:last], threshold)
 
 	fmt.Printf("len(candles): %d\n", len(candles))

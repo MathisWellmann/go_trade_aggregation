@@ -2,7 +2,7 @@ package go_trade_aggregation
 
 import "math"
 
-// AggMarketEnergy uses the aggregation function sqrt(abs(size) * abs(return)) to determine candles
+// AggMarketEnergy uses the aggregation function abs(return) / abs(size) to determine candles
 func AggMarketEnergy(trades []*Trade, threshold float64) []*Candle {
 	var out []*Candle
 
@@ -29,6 +29,7 @@ func AggMarketEnergy(trades []*Trade, threshold float64) []*Candle {
 			numBuys = 0
 			numTrades = 0
 			wp = 0
+			s = 0
 		}
 
 		if trades[i].Price > high {
@@ -48,7 +49,7 @@ func AggMarketEnergy(trades []*Trade, threshold float64) []*Candle {
 			continue
 		}
 		ret := trades[i].Price - trades[i-1].Price
-		s += math.Sqrt(math.Abs(trades[i].Size) * math.Abs(ret))
+		s += math.Abs(ret) / math.Abs(trades[i].Size)
 
 		if s > threshold {
 			// create new candle

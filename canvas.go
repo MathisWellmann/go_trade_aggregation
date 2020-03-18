@@ -1,6 +1,7 @@
 package go_trade_aggregation
 
 import (
+	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/tfriedel6/canvas"
 	"github.com/tfriedel6/canvas/backend/softwarebackend"
@@ -24,8 +25,9 @@ func PlotCandleStick(candles []*Candle, filename string) error {
 
 	for i := 0; i < len(candles); i++ {
 		var candleColor string
-		if candles[i].TradeDirectionRatio > 0.5 {
+		if candles[i].Close >= candles[i].Open {
 			candleColor = "#00FF00"
+			fmt.Printf("GREEN candle: %#v\n", candles[i])
 		} else {
 			candleColor = "#FF0000"
 		}
